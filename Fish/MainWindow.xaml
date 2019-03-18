@@ -13,12 +13,13 @@
         <Button Content="Select file" Margin="10,0,0,60" Click="file_select_click" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75"/>
         <TextBox  Name="outputfile" Margin="143,0,116,35" TextWrapping="Wrap" Height="20" VerticalAlignment="Bottom" />
         <Image Name="disp" Margin="10,10,10,97"/>
-        <CheckBox Name="disp_frame_state" Content="Display Frames" Margin="0,0,10,57" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="101"/>
+        <CheckBox Name="disp_frame_state" Content="Display Output" Margin="0,0,10,57" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="101"/>
         <TextBox Name="inputfile" Margin="143,0,116,60" TextWrapping="Wrap" Height="20" VerticalAlignment="Bottom" />
         <Button Content="Process" Margin="10,0,0,10" Click="Start_Click" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75"/>
         <Label Content="Input:" HorizontalAlignment="Left" Margin="90,0,0,60" Width="53" Height="26" VerticalAlignment="Bottom"/>
         <Label Content="Output:" HorizontalAlignment="Left" Margin="90,0,0,35" Width="53" Height="26" VerticalAlignment="Bottom"/>
         <ProgressBar Name="bar" Margin="90,0,10,10" Height="20" VerticalAlignment="Bottom" />
-        <TextBlock Name="barText" Text="0%" VerticalAlignment="Bottom" Margin="428,0,347,10" Height="20" HorizontalAlignment="Center" />
+        <TextBlock Name="barText" Text="0%" VerticalAlignment="Bottom" Margin="90,0,10,10" Height="20" HorizontalAlignment="Center" Width="692" TextAlignment="Center" />
+        <CheckBox Name="disp_blobs" Content="Display Blobs" Margin="0,0,10,32" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="101"/>
     </Grid>
 </Window>
