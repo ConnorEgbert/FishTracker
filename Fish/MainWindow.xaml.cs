@@ -17,6 +17,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Threading;
 using System.Threading;
+using Window = System.Windows.Window;
 
 namespace Fish
 {
@@ -81,21 +82,20 @@ namespace Fish
         private void processFrame(Mat srcImage) {
 
             var binaryImage = new Mat(srcImage.Size(), srcImage.Type());
-            Mat threshImg = new Mat();
 
-            Cv2.CvtColor(binaryImage, threshImg, code: ColorConversionCodes.BGR2HSV);
+            Cv2.CvtColor(srcImage, binaryImage, code: ColorConversionCodes.BGR2HSV);
 
-            //Cv2.InRange(threshImg, new Scalar(30, 1, 1), new Scalar(50, 255, 255), threshImg);
-            //Cv2.Threshold(binaryImage, binaryImage, thresh: 30, maxval: 50, type: ThresholdTypes.Binary);
+            Cv2.InRange(binaryImage, new Scalar(0, 75, 75), new Scalar(65, 255, 255), binaryImage);
+            //Cv2.Threshold(binaryImage, binaryImage, thresh: 30, maxval: 50, type: ThresholdTypes.Mask);
 
-            //Cv2.GaussianBlur(threshImg, threshImg, , 0);   //Blur Effect
-            //Cv2.Dilate(threshImg, threshImg, 0);        // Dilate Filter Effect
-            //Cv2.Erode(threshImg, threshImg, 0);         // Erode Filter Effect
+            Cv2.GaussianBlur(binaryImage, binaryImage, new OpenCvSharp.Size(1, 1), 0);   //Blur Effect
+            Cv2.Dilate(binaryImage, binaryImage, 10);        // Dilate Filter Effect
+            Cv2.Erode(binaryImage, binaryImage, 10);         // Erode Filter Effect
 
             //Cv2.CvtColor(srcImage, binaryImage, ColorConversionCodes.BGRA2GRAY);
             
 
-            Cv2.ImShow("eu", threshImg);
+            Cv2.ImShow("CV", binaryImage);
 
             var detectorParams = new SimpleBlobDetector.Params
             {
@@ -124,12 +124,12 @@ namespace Fish
                 //FilterByInertia = true,
                 //MinInertiaRatio = 0.001f,
 
-                //FilterByColor = false,
-                FilterByColor = true,
-                BlobColor = 40
+                FilterByColor = false,
+                //FilterByColor = true,
+                //BlobColor = 40
             };
             var simpleBlobDetector = SimpleBlobDetector.Create(detectorParams);
-            var keyPoints = simpleBlobDetector.Detect(threshImg);
+            var keyPoints = simpleBlobDetector.Detect(binaryImage);
 
             KeyPoint largest = new KeyPoint();
 
@@ -198,7 +198,13 @@ namespace Fish
 
         void MainWindow_Closed(object sender, EventArgs e)
         {
-            vid.Release();
+            try
+            {
+                vid.Release();
+            }
+            catch {
+                ;
+            }
         }
     }
 }

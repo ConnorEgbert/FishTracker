@@ -8,19 +8,17 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="398*"/>
-            <RowDefinition Height="21*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Content="Select file" Margin="10,0,0,39.132" Click="file_select_click" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75"/>
-        <TextBox  Name="outputfile" Margin="143,0,116,14.132" TextWrapping="Wrap" Height="20" VerticalAlignment="Bottom" />
-        <Image Name="disp" Margin="10,10,10,76.132"/>
-        <CheckBox Name="disp_frame_state" Content="Display Frames" Margin="0,0,10,36.132" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="101"/>
-        <TextBox Name="inputfile" Margin="143,0,116,39.132" TextWrapping="Wrap" Height="20" VerticalAlignment="Bottom" />
-        <Button Content="Process" Margin="10,0,0,10" Click="Start_Click" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75" Grid.RowSpan="2"/>
-        <Label Content="Input:" HorizontalAlignment="Left" Margin="90,0,0,39.132" Width="53" Height="26" VerticalAlignment="Bottom"/>
-        <Label Content="Output:" HorizontalAlignment="Left" Margin="90,0,0,14.132" Width="53" Height="26" VerticalAlignment="Bottom"/>
-        <Button Content="Color select" Margin="0,0,10,14.132" Click="file_select_click" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="101"/>
-        <ProgressBar Name="bar" Margin="90,0,10,10" Height="20" VerticalAlignment="Bottom" Grid.RowSpan="2" />
-        <TextBlock Name="barText" Text="0%" VerticalAlignment="Bottom" Margin="90,0,10,10" Height="20" Grid.RowSpan="2" HorizontalAlignment="Center" />
+        <Button Content="Select file" Margin="10,0,0,60" Click="file_select_click" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75"/>
+        <TextBox  Name="outputfile" Margin="143,0,116,35" TextWrapping="Wrap" Height="20" VerticalAlignment="Bottom" />
+        <Image Name="disp" Margin="10,10,10,97"/>
+        <CheckBox Name="disp_frame_state" Content="Display Frames" Margin="0,0,10,57" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="101"/>
+        <TextBox Name="inputfile" Margin="143,0,116,60" TextWrapping="Wrap" Height="20" VerticalAlignment="Bottom" />
+        <Button Content="Process" Margin="10,0,0,10" Click="Start_Click" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75"/>
+        <Label Content="Input:" HorizontalAlignment="Left" Margin="90,0,0,60" Width="53" Height="26" VerticalAlignment="Bottom"/>
+        <Label Content="Output:" HorizontalAlignment="Left" Margin="90,0,0,35" Width="53" Height="26" VerticalAlignment="Bottom"/>
+        <ProgressBar Name="bar" Margin="90,0,10,10" Height="20" VerticalAlignment="Bottom" />
+        <TextBlock Name="barText" Text="0%" VerticalAlignment="Bottom" Margin="428,0,347,10" Height="20" HorizontalAlignment="Center" />
     </Grid>
 </Window>
